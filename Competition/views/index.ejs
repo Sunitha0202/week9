@@ -8,50 +8,56 @@
      
       <div class="pages">
         <div class="home">
+
           <div class="item-list">
             <!-- Render each book -->
             <% if (books.length > 0) { %>
               <% books.forEach(function(book) { %>
+               
                 <div class="book-details">
+        
                 <div class="item-preview">
                   <a href="/single-book/<%= book._id %>">
                     <h2>Title: <%= book.title %></h2>
                   </a>
-                    <p>Author: <%= book.author %></p>
-                    <p>Genre: <%= book.genre %></p>
-                    <span class="material-symbols-outlined">Delete</span>
-                 
-                </div></div>
-              <% }); %>
-            <% } else { %>
-              <p>No books found.</p>
-            <% } %>
-          </div>
-<%- include('partials/head.ejs', { title: "Add Book" }) %>
-        
-            <div class="content">
-              <div class="create">
-                <h3>Add a New Book</h3>
-                <form action="/addBook" method="POST">
-                  <label>Title:</label
-                  ><input type="text" value="" id="title" name="title" required />
-        
-                  <label>Author:</label
-                    ><input type="text" value="" id="author" name="author" required />
-        
-                    <label>Genre:</label
-                      ><input type="text" value="" id="genre" name="genre" required />
-        
-                  <button type="submit">Add Book</button>
-                </form>
-              </div>
-            </div>
-        
-            
+                  <p>Author: <%= book.author %></p>
+<p>Genre: <%= book.genre %></p>
+<span class="material-symbols-outlined">Delete</span>
 
-        </div>
-      </div>
-    </div>
-    <%- include('partials/footer') %>
-  </body>
+</div></div>
+<% }); %>
+<% } else { %>
+<p>No books found.</p>
+<% } %>
+</div>
+
+<%- include('partials/head.ejs', { title: "Add Book" }) %>
+
+
+<div class="content">
+<div class="create">
+<h3>Add a New Book</h3>
+<form action="/addBook" method="POST">
+<label>Title:</label
+><input type="text" value="" id="title" name="title" required />
+
+<label>Author:</label
+><input type="text" value="" id="author" name="author" required />
+
+<label>Genre:</label
+  ><input type="text" value="" id="genre" name="genre" required />
+
+<button type="submit">Add Book</button>
+</form>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+<%- include('partials/footer') %>
+ </body>
 </html>
