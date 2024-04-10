@@ -1,0 +1,46 @@
+<!-- addgoal.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Goal" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Goal</h2>
+        <form action="/addGoal" method="POST">
+          <label>Title:</label
+          ><input type="text" value="" id="title" name="title" required />
+
+          <label for="description">Description:</label>
+          <textarea
+            value=""
+            id="description"
+            name="description"
+            rows="4"
+            required
+          ></textarea
+          ><br />
+
+          <label for="targetDate">Target Date:</label>
+          <input type="date" id="targetDate" name="targetDate" required /><br />
+
+          <label>Author:</label>
+          <select>
+            <option value="sami">Sami</option>
+            <option value="rami">Rami</option></select
+          ><br />
+
+          <label for="achieved">Achieved:</label>
+          <input type="checkbox" id="achieved" name="achieved" /><br />
+
+          <button type="submit">Add Goal</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

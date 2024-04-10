@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Book server</title>
+  </head>
+  <body>
+    <div class="root">
+      <header>
+        <div class="container">
+          <a href="/"><h1>Dashboard</h1></a>
+          <nav>
+            <div><span>myemail@gmail.com</span><button>Log out</button></div>
+          </nav>
+        </div>
+      </header>
+      <div class="pages">
+        <div class="home">
+          <div class="bookArray">
+            <div class="book-details">
+              <h4>Title: Thinking, Fast and Slow</h4>
+              <p>Author: Daniel Kahneman</p>
+              <p>Genre: Psychology</p>
+              <span class="material-symbols-outlined">delete</span>
+            </div>
+            <div class="book-details">
+              <h4>Title: The Intelligent Investor</h4>
+              <p>Author: Benjamin Graham</p>
+              <p>Genre: Economics</p>
+              <span class="material-symbols-outlined">delete</span>
+            </div>
+            <div class="book-details">
+              <h4>Title: Atomic Habits</h4>
+              <p>Author: James Clear</p>
+              <p>Genre: Business</p>
+              <span class="material-symbols-outlined">delete</span>
+            </div>
+          </div>
+          <form class="create">
+            <h3>Add a New Book</h3>
+            <label>Title:</label><input type="text" value="" /><label
+              >Author:</label
+            ><input type="text" value="" /><label>Genre:</label
+            ><input type="text" value="" /><button>Add Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!-- updategoal.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Goal</h2>
+      <form action="/single-goal/<%= goal._id %>?_method=PUT" method="POST">
+        <label>Title:</label>
+        <input type="text" value="<%= goal.title %>" id="title" name="title" required />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required><%= goal.description %></textarea>
+
+        <label for="targetDate">Target Date:</label>
+        <input type="date" id="targetDate" name="targetDate" required value="<%= goal.targetDate.toISOString().substr(0, 10) %>" />
+
+        <label>Author:</label>
+        <select name="author">
+          <option value="sami">Sami</option>
+          <option value="rami">Rami</option>
+        </select>
+
+        <label for="achieved">Achieved:</label>
+        <input type="checkbox" id="achieved" name="achieved" <% if (goal.achieved) { %>checked<% } %> />
+
+        <button type="submit">Update Goal</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

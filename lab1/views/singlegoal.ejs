@@ -1,0 +1,62 @@
+<!-- Define a function to render the goal -->
+<% function renderGoal(goal) { %>
+    <div class="item-details">
+      <article>
+        <h2>Title: <%= goal.title %></h2>
+        <div><%= goal.description %></div>
+        <p>
+          <strong>Target Date:</strong> <%= formatDate(goal.targetDate) %><br />
+          <strong>Achieved:</strong> <%= goal.achieved %>
+        </p>
+    
+        <!-- Update button -->
+        <form
+          class="action-form"
+          method="GET"
+          action="/single-goal/update/<%= goal._id %>"
+        >
+          <button type="submit" class="update">update</button>
+        </form>
+    
+        <!-- Delete button -->
+        <form
+          class="action-form"
+          method="POST"
+          action="/single-goal/<%= goal._id %>?_method=DELETE"
+        >
+          <button type="submit">delete</button>
+        </form>
+      </article>
+    </div>
+    <% } %>
+  
+      
+    <% 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        // Format the date as desired (e.g., YYYY-MM-DD)
+        const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+        return formattedDate;
+    } 
+    %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <!-- Pass a JavaScript variable to a partial in EJS -->
+    <%- include('partials/head.ejs', { title: goal.title }) %>
+    <body>
+      <%- include('partials/navbar.ejs') %>
+      
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (goal) { %> <%= renderGoal(goal) %> <% } else { %>
+            <p>No goal found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+  
+      <%- include('partials/footer.ejs') %>
+    </body>
+  </html>

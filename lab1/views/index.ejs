@@ -1,0 +1,65 @@
+<!-- Define a function to render each goal -->
+<% function renderGoal(goal) { %>
+    <div class="item-preview">
+      <a href="/single-goal/<%= goal._id %>">
+        <h2>Title: <%= goal.title %></h2>
+        <p>Written by Sami</p>
+      </a>
+    </div>
+    <% } %>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+      <!-- Pass a JavaScript variable to a partial in EJS -->
+      <%- include('partials/head.ejs', { title: "Home page" }) %>
+    
+      <body>
+        <%- include('partials/navbar') %>
+    
+        <div class="content">
+          <div class="home">
+            <div class="item-list">
+              <% if (goals.length > 0) { %>
+              <!-- Call the renderGoal function for each goal -->
+              <% goals.forEach(renderGoal); %> <% } else { %>
+              <p>No goals found.</p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+    
+        <%- include('partials/footer') %>
+      </body>
+    </html><!-- Define a function to render each goal -->
+<% function renderGoal(goal) { %>
+<div class="item-preview">
+  <a href="/single-goal/<%= goal._id %>">
+    <h2>Title: <%= goal.title %></h2>
+    <p>Written by Sami</p>
+  </a>
+</div>
+<% } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Home page" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="home">
+        <div class="item-list">
+          <% if (goals.length > 0) { %>
+          <!-- Call the renderGoal function for each goal -->
+          <% goals.forEach(renderGoal); %> <% } else { %>
+          <p>No goals found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>
