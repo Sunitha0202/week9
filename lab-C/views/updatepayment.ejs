@@ -1,0 +1,31 @@
+<!-- updatepayment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Payment</h2>
+      <form action="/single-payment/<%= payment._id %>?_method=PUT" method="POST">
+        
+        
+        <label>Amount:</label>
+        <input type="number" value="<%= payment.amount %>" id="amount" name="amount" required />
+
+        <label>Method:</label>
+        <input type="text" value="<%= payment.method %>" id="method" name="method" required />
+
+        <label>Status:</label>
+        <input type="text" value="<%= payment.status %>" id="status" name="status" required />
+
+        <button type="submit">Update Payment</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- updatesleeplog.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Sleeplog</h2>
+      <form action="/single-sleeplog/<%= sleeplog._id %>?_method=PUT" method="POST">
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required value="<%= sleeplog.date.toISOString().substr(0, 10) %>" />
+
+        <label>HoursSlept:</label>
+        <input type="number" value="<%= sleeplog.hoursSlept %>" id="hoursSlept" name="hoursSlept" required />
+
+        <label>Quality:</label>
+        <input type="number" value="<%= sleeplog.quality %>" id="quality" name="quality" required />
+
+        <label>Comments:</label>
+        <input type="text" value="<%= sleeplog.comments %>" id="comments" name="comments" required />
+
+        <button type="submit">Update Sleeplog</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

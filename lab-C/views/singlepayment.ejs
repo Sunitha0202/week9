@@ -1,0 +1,67 @@
+<!-- Define a function to render the payment -->
+<% function renderPayment(payment) { %>
+    <div class="item-details">
+      <article>
+        <h2>Title: <%= payment.title %></h2>
+        <div><%= payment.description %></div>
+        <p>
+
+          <strong>Amount:</strong> <%= payment.amount %>
+          <strong>Method:</strong> <%= payment.method %>
+          <strong>Status:</strong> <%= payment.status %>
+          
+          
+        </p>
+    
+        <!-- Update button -->
+        <form
+          class="action-form"
+          method="GET"
+          action="/single-payment/update/<%= payment._id %>"
+        >
+          <button type="submit" class="update">update</button>
+        </form>
+    
+        <!-- Delete button -->
+        <form
+          class="action-form"
+          method="POST"
+          action="/single-payment/<%= payment._id %>?_method=DELETE"
+        >
+          <button type="submit">delete</button>
+        </form>
+      </article>
+    </div>
+    <% } %>
+  
+      
+    <% 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        // Format the date as desired (e.g., YYYY-MM-DD)
+        const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+        return formattedDate;
+    } 
+    %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <!-- Pass a JavaScript variable to a partial in EJS -->
+    <%- include('partials/head.ejs', { title: payment.title }) %>
+    <body>
+      <%- include('partials/navbar.ejs') %>
+      
+     
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (payment) { %> <%= renderPayment(payment) %> <% } else { %>
+            <p>No payment found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+  
+      <%- include('partials/footer.ejs') %>
+    </body>
+  </html>

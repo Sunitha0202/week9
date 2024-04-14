@@ -1,33 +1,33 @@
 <!-- Define a function to render each waterintake -->
 <% function renderWaterintake(waterintake) { %>
-    <div class="item-preview">
-      <a href="/single-waterintake/<%= waterintake._id %>">
-        <h2>Title: <%= waterintake.title %></h2>
-        <p>Written by Sami</p>
-      </a>
-    </div>
-    <% } %>
-    
-    <!DOCTYPE html>
-    <html lang="en">
-      <!-- Pass a JavaScript variable to a partial in EJS -->
-      <%- include('partials/head.ejs', { title: "Home page" }) %>
-    
-      <body>
-        <%- include('partials/navbar') %>
-    
-        <div class="content">
-          <div class="home">
-            <div class="item-list">
-              <% if (waterintake.length > 0) { %>
-              <!-- Call the renderWaterintake function for each waterintake -->
-              <% waterintakes.forEach(renderwaterintake); %> <% } else { %>
-              <p>No waterintakes found.</p>
-              <% } %>
-            </div>
+  <div class="item-preview">
+    <a href="/single-waterintake/<%= waterintake._id %>">
+      <h2>Date: <%= waterintake.date %></h2>
+      <p>Written by Sunitha</p>
+    </a>
+  </div>
+  <% } %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <!-- Pass a JavaScript variable to a partial in EJS -->
+    <%- include('partials/head.ejs', { title: "Home page" }) %>
+  
+    <body>
+      <%- include('partials/navbar') %>
+  
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (waterintakes.length > 0) { %>
+            <!-- Call the renderWaterintake function for each waterintake -->
+            <% waterintakes.forEach(renderWaterintake); %> <% } else { %>
+            <p>No waterintakes found.</p>
+            <% } %>
           </div>
         </div>
-    
-        <%- include('partials/footer') %>
-      </body>
-    </html>
+      </div>
+  
+      <%- include('partials/footer') %>
+    </body>
+  </html>

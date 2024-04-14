@@ -1,0 +1,44 @@
+
+<!-- addcontact.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Contact" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Contact</h2>
+        <form action="/addContact" method="POST">
+          <label>First Name:</label
+          ><input type="text" value="" id="firstName" name="firstName" required />
+
+          <label for="lastName">Last name:</label>
+          <input type="text" id="lastName" name="lastName" required /><br />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required /><br />
+
+          <label for="phone">Phone:</label>
+          <input type="number" id="phone" name="phone" required /><br />
+
+          <label for="address">Address:</label>
+          <textarea
+            value=""
+            id="address"
+            name="address"
+            rows="4"
+            required
+          ></textarea
+          ><br />
+
+          <button type="submit">Add Contact</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

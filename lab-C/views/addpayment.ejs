@@ -1,0 +1,31 @@
+<!-- addpayment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Payment" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Payment</h2>
+        <form action="/addPayment" method="POST">
+          
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" required /><br />
+
+          <label for="method">Method:</label>
+          <input type="text" id="method" name="method" required /><br />
+
+          <label for="status">Status:</label>
+          <input type="status" id="status" name="status" required /><br />
+          
+          <button type="submit">Add Payment</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

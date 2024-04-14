@@ -1,0 +1,35 @@
+<!-- Define a function to render each contact -->
+<% function renderContact(contact) { %>
+    <div class="item-preview">
+      <a href="/single-contact/<%= contact._id %>">
+        <h2>Name: <%= contact.firstName %></h2>
+        <h2><%= contact.lastName %></h2>
+        <p>Details</p>
+      </a>
+    </div>
+    <% } %>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+      <!-- Pass a JavaScript variable to a partial in EJS -->
+      <%- include('partials/head.ejs', { title: "Home page" }) %>
+    
+      <body>
+        <%- include('partials/navbar') %>
+    
+        <div class="content">
+          <div class="home">
+            <div class="item-list">
+              <% if (contacts.length > 0) { %>
+              <!-- Call the renderContact function for each contact -->
+              <% contacts.forEach(renderContact); %> <% } else { %>
+              <p>No contacts found.</p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+    
+        <%- include('partials/footer') %>
+      </body>
+    </html>
+    

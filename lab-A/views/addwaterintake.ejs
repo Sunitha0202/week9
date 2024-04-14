@@ -1,0 +1,32 @@
+<!-- addwaterintake.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Waterintake" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Waterintake</h2>
+        <form action="/addWaterintake" method="POST">
+          <label>Date:</label
+          ><input type="date" value="" id="date" name="date" required />
+
+          
+
+          <label for="amountInLiters">AmountInLiters:</label>
+          <input type="number" id="amountInLiters" name="amountInLiters" required /><br />
+
+          <label for="comments">Comments:</label>
+          <input type="text" id="comments" name="comments" required /><br />
+          
+          <button type="submit">Add Waterintake</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>
